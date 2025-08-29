@@ -1,10 +1,17 @@
 public class PracticaArreglos{
 	
 	public static String imprimeArreglo(Object[] arreglo){
-		String sa = "";
+		if (arreglo == null) {
+			return "[]";
+		}
+		String sa = "[";
+
 		for (Object elemento : arreglo) {
 			sa = sa + elemento.toString();
+			sa = sa + ",  ";
 		}
+		sa = sa.substring(0, sa.length() - 1);
+		sa = sa + "]";
 		return sa;
 	}
 
