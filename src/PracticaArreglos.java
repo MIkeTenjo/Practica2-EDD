@@ -10,29 +10,71 @@ public class PracticaArreglos{
 			sa = sa + elemento.toString();
 			sa = sa + ",  ";
 		}
-		sa = sa.substring(0, sa.length() - 1);
+		sa = sa.substring(0, sa.length() - 2);
 		sa = sa + "]";
 		return sa;
 	}
 
 	public static String imprimeArreglo(int[] arreglo){
-		/*Aquí va tu código*/
+		if (arreglo == null) {
+			return "[]";
+		}
+		String sa = "[";
+
+		for (int numero : arreglo) {
+			sa = sa + String.valueOf(numero);
+			sa = sa + ",  ";
+		}
+		sa = sa.substring(0, sa.length() - 2);
+		sa = sa + "]";
+		return sa;
 	}
 
 	public static String imprimeArreglo(double[] arreglo){
-		/*Aquí va tu código*/
+		if (arreglo == null) {
+			return "[]";
+		}
+		String sa = "[";
+
+		for (double flotante : arreglo) {
+			sa = sa + String.valueOf(flotante);
+			sa = sa + ",  ";
+		}
+		sa = sa.substring(0, sa.length() - 2);
+		sa = sa + "]";
+		return sa;
 	}
 
 	public static int[] reversaArreglo(int[] arreglo){
-		/*Aquí va tu código*/
+		int[] copiaArreglo = new int[arreglo.length];
+
+		for(int c = 0; c < arreglo.length ; c++){
+			copiaArreglo[arreglo.length - c] = arreglo[c];
+		}
+
+		return copiaArreglo;
 	} 
 
 	public static double[] guardarAreas(Figura[] figuras){
-		/*Aquí va tu código*/
+		
+		double[] areas = new double[figuras.length];
+
+		for(int c  = 0; c < figuras.length; c++){
+			areas[c] = figuras[c].calcularArea();
+		}
+
+		return areas;
 	}
 
 	public static Persona[] crearPersonas(String[] nombres, int[] edades){
-		/*Aquí va tu código*/
+		Persona[] personas = new Persona[edades.length];
+
+		for(int c  = 0; c < personas.length; c++){
+			personas[c] = new Persona(nombres[c], edades[c]);
+		}
+
+		return personas;
+
 	}
 
 	public static int[] combinarArreglos(int[] arreglo1, int[] arreglo2){
