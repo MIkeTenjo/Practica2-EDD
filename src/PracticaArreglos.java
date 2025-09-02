@@ -78,11 +78,46 @@ public class PracticaArreglos{
 	}
 
 	public static int[] combinarArreglos(int[] arreglo1, int[] arreglo2){
-		/*Aquí va tu código*/
+		int[] arreglo3 = new int[arreglo1.length + arreglo2.length];
+		for (int i = 0; i < arreglo3.length; i++) {
+			if(i < arreglo1.length){
+				arreglo3[i] = arreglo1[i];
+			} else{
+				arreglo3[i] = arreglo2[i - arreglo1.length];
+			}
+		}
+
+		return arreglo3;
+
 	}
 
 	/*Punto extra*/
 	public static Object[] eliminarDuplicados(Object[] arreglo) {
-		return null;
+		Object[] aux = new Object[arreglo.length];
+		int longitud = 0;
+		for(int i = 0; i < arreglo.length; i++){
+			Object elemento = arreglo[i];
+			boolean esDuplicado = false;
+
+			for(int j = 0; j < longitud; j++){
+				if(aux[j] == elemento){
+					esDuplicado = true;
+					break;
+				}
+			}
+
+			if (!esDuplicado) {
+				aux[longitud] = elemento;
+				longitud++;
+			}
+
+		}
+
+		Object[] nuevoArreglo = new Object[longitud];
+		for(int i = 0; i < longitud; i++){
+			nuevoArreglo[i] = aux[i];
+		}
+
+		return nuevoArreglo;
 	}
 }
